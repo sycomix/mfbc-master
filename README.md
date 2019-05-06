@@ -3,9 +3,11 @@
 Work's on windows and linux.
 
 Python3+
+
+recommended python 3.7
 ```
 
-# Multi Function Bitcoin Cracker / MFBC
+# Multi Function Brainwallet Cracker / MFBC
 ```
 offline dictionary attack on btc wallets
 
@@ -26,16 +28,12 @@ $ pyton mfbc.py
 # Menu
 
 ```
-Select from function 1 to 8, 0 = Exit
+Select from function 1 to 4, 0 = Exit
 
-1) os.urandom generator Hmac(base64.sha256)
-2) os.urandom generator Hmac(base64.sha512)
-3) secrets.token_bytes gen. HMAC(base64.sha256)
-4) secrets.token_bytes gen. HMAC(base64.sha512)
-5) dict. attack rand. word gen.(no space) HMAC(base64.sha256):
-6) dict. attack rand. word gen.(no space) HMAC(base64.sha512):
-7) dict. attack random word gen.(with space)HMAC(base64.sha256):
-8) dict. attack random word gen.(with space)HMAC(base64.sha512):
+1) os.urandom generator
+2) secrets.token_bytes gen.
+3) dict. attack rand. word gen.(no space)
+4) dict. attack random word gen.(with space)
 0) exit
 ```
 
@@ -73,7 +71,10 @@ public key: 04040e4311b932c26f2172e112d1e37bca43428ea6951e3269513ecff6dda67dd8b3
 
 ```
 Donate to the author of this program: 1GmQaG9R5NPs3ZzR6XPMD9jZk17F9MuoWn
+
 ```
+# Working on new script with multiprocess and updated database
+
 
 #
 #
