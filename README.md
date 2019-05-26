@@ -21,7 +21,8 @@ $ git https://github.com/mobb111/mfbc-master.git
 
 $ cd mfbc-master
 
-$ pyton mfbc.py
+$ python3.7 mfbc.py
+$ python3.7 bruter.py multiprocess
 
 ```
 
@@ -35,6 +36,12 @@ Select from function 1 to 4, 0 = Exit
 3) dict. attack rand. word gen.(no space)
 4) dict. attack random word gen.(with space)
 0) exit
+
+
+
+bruter.py 
+
+select how many threads:
 ```
 
 # How it works
