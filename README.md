@@ -23,6 +23,7 @@ $ cd mfbc-master
 
 $ python3.7 mfbc.py
 $ python3.7 bruter.py multiprocess
+$ python3.7 mfbb.py mutiprocess dict attack
 
 ```
 
