@@ -65,7 +65,7 @@ def main():
                 file = open('harvest1', 'a')
                 file.write("Mnemonic code word: " + ' ' + str(xa)+ "\n" + str(address)+ ' ' + str(WIF)+ "\n"+ "\n")
                 file.close()
-                with open("data-base1", "r") as m:
+                with open("data-base", "r") as m:
                     add = m.read().split()
                     for ad in add:
                         continue
