@@ -34,18 +34,19 @@ def main():
                 privatekey1 = binascii.unhexlify(pvt1)
                 s = ecdsa.SigningKey.from_string(privatekey1, curve = ecdsa.SECP256k1)
                 publickey = '04' + binascii.hexlify(s.verifying_key.to_string()).decode('utf-8')
-                extended_key1 = "80"+pvt1
+                extended_key1 = f"80{pvt1}"
                 first_sha2561 = hashlib.sha256(binascii.unhexlify(extended_key1)).hexdigest()
                 second_sha2561 = hashlib.sha256(binascii.unhexlify(first_sha2561)).hexdigest()
                 final_key1 = extended_key1+second_sha2561[:8]
                 WIF = base58.b58encode(binascii.unhexlify(final_key1))
                 alphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
-                c = '0'; byte = '00'; zero = 0
+                c = '0'
+                zero = 0
                 var = hashlib.new('ripemd160')
                 var.update(hashlib.sha256(binascii.unhexlify(publickey.encode())).digest())
-                a = (byte + var.hexdigest())
+                a = f'00{var.hexdigest()}'
                 doublehash = hashlib.sha256(hashlib.sha256(binascii.unhexlify(a.encode())).digest()).hexdigest()
-                address = a + doublehash[0:8]
+                address = a + doublehash[:8]
                 for char in address:
                     if (char != c):
                         break
@@ -61,19 +62,36 @@ def main():
                     output.append(alphabet[0])
                     count += 1
                 address = ''.join(output[::-1])
-                print("Mnemonic code word: " + ' ' + str(xa)+ "\n" + str(address)+ ' ' + str(WIF)+ "\n")
-                file = open('harvest1', 'a')
-                file.write("Mnemonic code word: " + ' ' + str(xa)+ "\n" + str(address)+ ' ' + str(WIF)+ "\n"+ "\n")
-                file.close()
+                print(
+                    "Mnemonic code word: "
+                    + ' '
+                    + xa
+                    + "\n"
+                    + address
+                    + ' '
+                    + str(WIF)
+                    + "\n"
+                )
+                with open('harvest1', 'a') as file:
+                    file.write(
+                        "Mnemonic code word: "
+                        + ' '
+                        + xa
+                        + "\n"
+                        + address
+                        + ' '
+                        + str(WIF)
+                        + "\n"
+                        + "\n"
+                    )
                 with open("data-base", "r") as m:
                     add = m.read().split()
-                    for ad in add:
+                    for _ in add:
                         continue
                     if address in add:
-                        print("Found: " + ' ' +str(address))
-                        data = open("Win1.txt","a")
-                        data.write("found " + str(xa)+"\n" +str(address)+"\n"+str(WIF)+"\n"+"\n")
-                        data.close()
+                        print("Found: " + ' ' + address)
+                        with open("Win1.txt","a") as data:
+                            data.write(f"found {xa}" + "\n" + address + "\n" + str(WIF) + "\n" + "\n")
                 
                      
   

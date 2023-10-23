@@ -7,12 +7,11 @@
 addr1 = "16HC2oNNjmhXgGqf4YYZwSfRK4meVpAGm7"
 with open("addr-data.txt", "r") as m:
     add = m.read().split()
-    for ad in add:
+    for _ in add:
         continue
     if addr1 in add:
         print("found"+ " " +addr1)
-        data = open("Win.txt","a")
-        data.write("found " +(addr1)+"\n")
-        data.close()
-    elif addr1 not in add:
+        with open("Win.txt","a") as data:
+            data.write(f"found {addr1}" + "\n")
+    else:
         print("No luck!!!"+"\n")
